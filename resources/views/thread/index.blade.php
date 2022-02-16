@@ -10,7 +10,11 @@
             <div class="col-md-4">
                 <a href="{{ action('ThreadController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
-           
+            <form action= {{ action('ThreadController@index') }} class="form-inline">
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <input type="text" name="search_word" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="スレッド検索">
+                <button type="submit" class="btn btn-primary mb-2">検索</button>
+            </form>
         </div>
         <div class="row">
             <div class="list-news col-md-12 mx-auto">

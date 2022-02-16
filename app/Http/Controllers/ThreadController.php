@@ -17,7 +17,6 @@ class ThreadController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Thread::$rules);
-        
         $thread = new Thread;
         $thread->title = $request->title;
         $thread->body = $request->body;
@@ -26,10 +25,14 @@ class ThreadController extends Controller
         return redirect('thread');
     }
     
-    public function index()
+    public function index(Request $request)
     {
-     // すべてのニュースを取得する
-        $threads = Thread::all();
+        if($request->search_word){
+            $threads = Thread::where('title','like', "%{$request->search_word}%")->get();
+        } else {
+          // それ以外はすべてのニュースを取得する
+            $threads = Thread::all();
+        }
         return view('thread.index', ['threads' => $threads]);
     }
 
