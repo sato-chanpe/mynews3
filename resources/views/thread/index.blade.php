@@ -33,6 +33,11 @@
                                     <th>{{ $thread->id }}</th>
                                     <td>{{ \Str::limit($thread->title, 100) }}</td>
                                     <td>{{ \Str::limit($thread->body, 250) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('ThreadController@show', $thread) }}">投稿を見る</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

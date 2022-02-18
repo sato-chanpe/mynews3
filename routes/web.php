@@ -19,6 +19,8 @@ Route::group(['prefix' => 'thread'], function() {
     Route::get('create', 'ThreadController@add')->middleware('auth');
     Route::post('create', 'ThreadController@create')->middleware('auth');
     Route::get('/', 'ThreadController@index');
+    
+    Route::get('show', 'ThreadController@show');
 });
 
 
