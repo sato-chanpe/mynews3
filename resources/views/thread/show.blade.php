@@ -16,7 +16,7 @@
       </p>
     </div>
   </div>
-  <form action="{{ action('PostController@create') }}" method="post" enctype="multipart/form-data">
+  <form action="{{ action('PostController@create', $thread) }}" method="post" enctype="multipart/form-data">
 
       @if (count($errors) > 0)
           <ul>
@@ -31,7 +31,6 @@
               <textarea class="form-control" name="body" rows="5">{{ old('body') }}</textarea>
           </div>
       </div>
-      <input type="hidden" name="thread_id" value={{ $thread->id }}>
       {{ csrf_field() }}
       <input type="submit" class="btn btn-primary" value="投稿">
   </form>
