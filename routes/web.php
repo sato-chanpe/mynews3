@@ -20,6 +20,8 @@ Route::group(['prefix' => 'thread'], function() {
     Route::get('{thread_id}', 'ThreadController@show');
 });
 
+Route::post('post/create', 'PostController@create');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
