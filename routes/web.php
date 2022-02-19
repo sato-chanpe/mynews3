@@ -11,25 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ThreadController@index');
 
 Route::group(['prefix' => 'thread'], function() {
     Route::get('create', 'ThreadController@add')->middleware('auth');
     Route::post('create', 'ThreadController@create')->middleware('auth');
     Route::get('/', 'ThreadController@index');
-    
-    Route::get('show', 'ThreadController@show');
+    Route::get('{thread_id}', 'ThreadController@show');
 });
-
-
-
-// Route::group(["prefix"=>"thread"], function(){
-//     Route::group(["middleware"=>"auth"], function(){
-//         Route::get('new', 'ThreadController@add');
-//         Route::post('create', 'ThreadController@create');
-//     });
 
 Auth::routes();
 

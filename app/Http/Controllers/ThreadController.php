@@ -33,7 +33,7 @@ class ThreadController extends Controller
           // それ以外はすべてのニュースを取得する
             $threads = Thread::all();
         }
-        return view('thread.index', ['threads' => $threads]);
+        return view('thread.index', ['threads' => $threads, 'hogehoge' => "hello"]);
     }
     
     public function show(Request $request)

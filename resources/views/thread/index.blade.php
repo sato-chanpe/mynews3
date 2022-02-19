@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>スレッド一覧</h2>
+            <h2>スレッド一覧 {{ $hogehoge }}</h2>
         </div>
         <div class="row">
             <div class="col-md-4">
