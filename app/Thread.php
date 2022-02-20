@@ -12,4 +12,8 @@ class Thread extends Model
         'title' => 'required',
         'body' => 'required',
     );
+    
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
 }

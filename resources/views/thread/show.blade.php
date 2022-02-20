@@ -16,8 +16,17 @@
       </p>
     </div>
   </div>
+  @foreach($thread->posts as $post)
+    <div class="card mt-3 mb-3">
+        <div class="card-body">
+          <p class="card-text">
+            {{ $post->body }}
+          </p>
+        </div>
+    </div>
+  @endforeach
+  
   <form action="{{ action('PostController@create', $thread) }}" method="post" enctype="multipart/form-data">
-
       @if (count($errors) > 0)
           <ul>
               @foreach($errors->all() as $e)
