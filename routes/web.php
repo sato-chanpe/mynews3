@@ -17,12 +17,12 @@ Route::group(['prefix' => 'thread'], function() {
   Route::group(["middleware"=>"auth"],function(){
     Route::get('create', 'ThreadController@add');
     Route::post('create', 'ThreadController@create');
-    });
-    Route::get('/', 'ThreadController@index');
-    Route::group(["prefix" => "{thread_id}"], function(){
-        Route::get("/", 'ThreadController@show');
-        Route::post("post/create", "PostController@create");
-    }); 
+  });
+  Route::get('/', 'ThreadController@index');
+  Route::group(["prefix" => "{thread_id}"], function(){
+    Route::get("/", 'ThreadController@show');
+    Route::post("post/create", "PostController@create");
+  }); 
 });
 
 
