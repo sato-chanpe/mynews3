@@ -19,7 +19,13 @@
   @foreach($thread->posts as $post)
     <div class="card mt-3 mb-3">
         <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">コメントした人の名前が入ります</h6>
+          <h6 class="card-subtitle mb-2 text-muted">
+            @if($post->user)
+              {{ $post->user->name }}
+            @else
+              {{ "ゲスト" }}
+            @endif
+          </h6>
           <p class="card-text">
             {{ $post->body }}
           </p>
