@@ -19,4 +19,10 @@ class PostController extends Controller
         
         return redirect()->back();
     }
+    
+    public function index(Request $request)
+    {
+        $post = Post::orderBy('created_at')->paginate(100);
+        return view('thread.show', ['post' => $post]); 
+    }
 }

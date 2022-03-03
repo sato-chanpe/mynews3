@@ -16,7 +16,7 @@
       </p>
     </div>
   </div>
-  @foreach($thread->posts as $post)
+  @foreach($posts as $post)
     <div class="card mt-3 mb-3">
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">
@@ -51,5 +51,8 @@
       {{ csrf_field() }}
       <input type="submit" class="btn btn-primary" value="投稿">
   </form>
+  <div class="d-flex justify-content-center mb-5">
+    {{ $posts->links() }}
+  </div>
 </div>
 @endsection

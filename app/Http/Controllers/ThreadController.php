@@ -40,7 +40,8 @@ class ThreadController extends Controller
     
     public function show(Request $request)
     {
-        return view('thread.show', ['thread' => Thread::find($request->thread_id)]);
+        $thread = Thread::find($request->thread_id);
+        return view('thread.show', ['thread' => $thread, "posts" => $thread->posts()->paginate(100)]);
     }
 
 }
