@@ -13,6 +13,8 @@
 
 Route::get('/', 'ThreadController@index');
 
+Route::resource('user', 'UserController')->only(['index', 'store', 'update', 'destroy'])->middleware('admin');
+
 Route::group(['prefix' => 'thread'], function() {
   Route::group(["middleware"=>"auth"],function(){
     Route::get('create', 'ThreadController@add');
@@ -24,7 +26,6 @@ Route::group(['prefix' => 'thread'], function() {
     Route::post("post/create", "PostController@create");
   }); 
 });
-
 
 Auth::routes();
 
